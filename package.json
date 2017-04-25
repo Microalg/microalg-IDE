@@ -1,0 +1,26 @@
+{
+  "name": "microalgide",
+  "version": "0.0.1",
+  "description": "An IDE for MicroAlg syntax",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "npm run clean && mkdir ./dir",
+    "build": "npm run clean && npm run pug && npm run copy:*",
+    "start": "concurrently 'npm run pug:watch'",
+    "clean": "rm -rf ./dist",
+    "pug": "pug ./src/views --out ./dist",
+    "pug:watch": "pug ./src/views --out ./dist -w",
+    "copy": "npm run copy:*",
+    "copy:js": "cp ./src/js/*.* ./dist/",
+    "serve": "browser-sync start --server 'dist' --files 'dist'"
+  },
+  "author": "@shinze",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "cssnano-cli": "^1.0.5",
+    "less": "^2.7.2",
+    "pug": "^2.0.0-beta11",
+    "pug-cli": "^1.0.0-alpha6"
+  }
+}
