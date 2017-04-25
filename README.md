@@ -1,4 +1,4 @@
-# Design de l’IDE de microalg
+# Prototype de l’IDE
 
 ## Installation
 0. Récuperer le projet : `git clone…`;
