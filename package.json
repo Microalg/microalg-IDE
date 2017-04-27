@@ -4,22 +4,40 @@
   "description": "An IDE for MicroAlg syntax",
   "main": "index.js",
   "scripts": {
-    "prestart": "npm run clean && mkdir ./dir",
+    "prestart": "npm run clean && mkdir ./dist",
     "build": "npm run clean && npm run pug && npm run copy:*",
-    "start": "concurrently 'npm run pug:watch'",
+    "start": "concurrently 'npm run pug:watch' 'npm run css:watch' 'npm run serve'",
     "clean": "rm -rf ./dist",
     "pug": "pug ./src/views --out ./dist",
-    "pug:watch": "pug ./src/views --out ./dist -w",
+    "pug:watch": "npm run pug -- -w",
+    "css": "postcss ./src/css/*.css -d ./dist --use cssnano --no-map",
+    "css:watch": "npm run css -- --watch",
     "copy": "npm run copy:*",
     "copy:js": "cp ./src/js/*.* ./dist/",
     "serve": "browser-sync start --server 'dist' --files 'dist'"
+  },
+  "postcss": {
+    "use": [
+      "postcss-cssnano"
+    ],
+    "input": "./src/css/*.css",
+    "output": "./dist/",
+    "autoprefixer": {
+      "browsers": "last 2 versions"
+    },
+    "cssnano": {
+      "rules": {}
+    },
+    "cssnext": {}
   },
   "author": "@shinze",
   "license": "MIT",
   "devDependencies": {
     "browser-sync": "^2.18.8",
-    "cssnano-cli": "^1.0.5",
+    "cssnano": "^3.10.0",
     "less": "^2.7.2",
+    "postcss-cli": "^3.2.0",
+    "postcss-cssnext": "^2.10.0",
     "pug": "^2.0.0-beta11",
     "pug-cli": "^1.0.0-alpha6"
   }

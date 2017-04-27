@@ -1,0 +1,213 @@
+:root {
+
+  font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;
+  line-height: 1.4;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+  /**
+   * Variables
+   **/
+
+  /* Proportions */
+  --step: .5rem;
+  --labor-font-size: 1rem;
+  --title-font-size: 1.5rem;
+
+  /* Couleurs communes */
+  --grey-darker:  0, 0, 0;       /* Jack Black */
+  --grey-dark:    40,40,40;
+  --grey:         60,60,60;
+  --grey-light:   240,240,240;
+  --grey-lighter: 255,255,255;  /* Jack White */
+
+
+  /*Thème sombre, thème par défaut */
+  --d-bg:         var(--grey-dark);
+  --d-text:       var(--grey-lighter);
+  --d-c1:         100,255,170;
+  --d-c2:         255,120,100;
+  --d-c3:         40,200,255;
+  --d-c4:         255,200,90;
+
+
+  /* Thème lumineux */
+  --l-bg:         var(--grey-light);
+  --l-text:       var(--grey);
+  --l-c1:         40,190,70;
+  --l-c2:         220,60,0;
+  --l-c3:         0,145,255;
+  --l-c4:         255,135,0; 
+  
+}
+
+
+
+
+/*
+ * Déclaration des thèmes
+ *
+ * @NOTE : Pour changer le thème de l’éditeur, simplement
+ * ajouter la class `.theme--light` sur l’élément .microalg
+ * Thème sombre par défaut.
+ *
+ */
+
+.microalg {
+  --bg-color:    var(--d-bg);
+  --text-color:  var(--d-text);
+  --c1:          var(--d-c1);
+  --c2:          var(--d-c2);
+  --c3:          var(--d-c3);
+  --c4:          var(--d-c4);
+  --links:       var(--d-c1);
+  --links-h:     var(--d-text);
+}
+
+.microalg.theme--light {
+  --bg-color:    var(--l-bg);
+  --text-color:  var(--l-text);
+  --c1:          var(--l-c1);
+  --c2:          var(--l-c2);
+  --c3:          var(--l-c3);
+  --c4:          var(--l-c4);
+  --links:       var(--l-c1);
+  --links-h:     var(--l-text);
+}
+
+
+
+/*
+ * Application des thèmes
+ *
+ */
+.ide {
+  background-color: rgb(40,40,40);
+  padding: 0;
+  margin: 0;
+}
+
+.microalg {
+  padding:  1rem;
+  background-color: rgb(var(--bg-color));
+  color: rgb(var(--text-color));
+}
+
+
+/* Liens */
+.microalg a {
+  text-decoration: none;
+}
+/*.microalg a {
+  color: rgb(var(--links));
+  text-decoration: none;
+  transition: all .2s;
+}
+
+.microalg a:hover {
+  box-shadow:
+    inset 0 0 0 0 transparent,
+    0 .1em 0 0 rgba(var(--c4), 1);
+}
+*/
+
+
+
+
+/*
+ * Onglets
+ *
+ */
+
+.microtabs {
+  margin-bottom: .5rem;
+  font-weight: bold;
+}
+
+.microtabs-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.microtabs-item {
+  display: inline-block;
+}
+
+.microtabs-link {
+  display: inline-block;
+  padding-bottom: 1rem;
+  margin-left: 1.5rem;
+  color: rgb(var(--links));
+  transition: all .2s;
+}
+
+.microtabs-link:hover,
+.microtabs-link:focus {
+  color: rgb(var(--links-h));
+}
+
+.microtabs-link--active {
+  box-shadow: 0 .25em 0 0 currentColor;
+}
+
+/*
+ * Messages
+ *
+ */
+
+.micromsg {}
+.micromsg--warn {
+  --msg: var(--d-c4);
+  --icn: var(--grey-darker)
+}
+
+.micromsg {
+  background-color: rgba(var(--msg), .2);
+  display: flex
+}
+
+.micromsg-heading {}
+
+.micromsg-title {
+  font-weight: bold;
+  color: rgb(var(--msg));
+  margin: 0;
+  padding: 0
+}
+
+.micromsg-body {
+  padding: 1rem;
+}
+
+.micromsg p {
+  margin: 0
+}
+
+.micromsg-cartouche {
+  background-color: rgb(var(--msg));
+  color: rgba(var(--icn), .9);
+  font-weight: bold;
+  font-size: var(--title-font-size) 
+}
+
+.micromsg-icn {
+  display: inline-block;
+  padding-top: 1rem;
+  padding-left: .5rem;
+  padding-right: .5rem
+}
+
+/*
+ * Synatxe
+ *
+ */
+
+
+.c1 { color: rgb(var(--c1)) }
+.c2 { color: rgb(var(--c2)) }
+.c3 { color: rgb(var(--c3)) }
+.c4 { color: rgb(var(--c4)) }
+
+
+
