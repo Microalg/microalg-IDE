@@ -1,14 +1,5 @@
 :root {
 
-  font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;
-  line-height: 1.4;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-
-  /**
-   * Variables
-   **/
-
   /* Proportions */
   --step: .5rem;
   --labor-font-size: 1rem;
@@ -20,25 +11,13 @@
   --grey:         60,60,60;
   --grey-light:   240,240,240;
   --grey-lighter: 255,255,255;  /* Jack White */
+ 
+  font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;
+  line-height: 1.4;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 
 
-  /*Thème sombre, thème par défaut */
-  --d-bg:         var(--grey-dark);
-  --d-text:       var(--grey-lighter);
-  --d-c1:         100,255,170;
-  --d-c2:         255,120,100;
-  --d-c3:         40,200,255;
-  --d-c4:         255,200,90;
-
-
-  /* Thème lumineux */
-  --l-bg:         var(--grey-light);
-  --l-text:       var(--grey);
-  --l-c1:         40,190,70;
-  --l-c2:         220,60,0;
-  --l-c3:         0,145,255;
-  --l-c4:         255,135,0; 
-  
 }
 
 
@@ -54,33 +33,49 @@
  */
 
 .microalg {
-  --bg-color:    var(--d-bg);
-  --text-color:  var(--d-text);
-  --c1:          var(--d-c1);
-  --c2:          var(--d-c2);
-  --c3:          var(--d-c3);
-  --c4:          var(--d-c4);
-  --links:       var(--d-c1);
-  --links-h:     var(--d-text);
+  --bg-color:      var(--grey-dark);
+  --text-color:    var(--grey-lighter);
+  --c1:            100,255,170; /* #64FFAA */
+  --c2:            255,120,100; /* #FF7864 */
+  --c3:            40,200,255;  /* #28DCFF */
+  --c4:            255,200,90;  /* #FFC85A */
+  --links:         var(--c1);
+  --links-hover:       var(--text-color);
+  --msg-icn-color: var(--grey-darker);
 }
 
-.microalg.theme--light {
-  --bg-color:    var(--l-bg);
-  --text-color:  var(--l-text);
-  --c1:          var(--l-c1);
-  --c2:          var(--l-c2);
-  --c3:          var(--l-c3);
-  --c4:          var(--l-c4);
-  --links:       var(--l-c1);
-  --links-h:     var(--l-text);
+.theme--light {
+  --bg-color:      var(--grey-light);
+  --text-color:    var(--grey);
+  --c1:            40,190,70; /* #28BE46 */
+  --c2:            220,60,0;  /* #DC3C00 */
+  --c3:            0,145,255; /* #0091FF */
+  --c4:            255,100,40; /* #FF8700 */
+  --links:         var(--c1);
+  --links-hover:   var(--text-color);
+  --msg-icn-color: var(--grey-lighter);
 }
 
+.micromsg--warn {
+  --msg-bg :         var(--c4);
+  --msg-cart-bg :    var(--c4);
+  --msg-cart-color : var(--msg-icn-color);
+  --msg-title :      var(--c4) 
+}
+
+.micromsg--info {
+  --msg-bg :         var(--c1);
+  --msg-cart-bg :    var(--c1);
+  --msg-cart-color : var(--msg-icn-color);
+  --msg-title :      var(--c1) 
+}
 
 
 /*
  * Application des thèmes
  *
  */
+
 .ide {
   background-color: rgb(40,40,40);
   padding: 0;
@@ -98,18 +93,12 @@
 .microalg a {
   text-decoration: none;
 }
-/*.microalg a {
-  color: rgb(var(--links));
-  text-decoration: none;
-  transition: all .2s;
-}
 
 .microalg a:hover {
   box-shadow:
     inset 0 0 0 0 transparent,
     0 .1em 0 0 rgba(var(--c4), 1);
 }
-*/
 
 
 
@@ -144,7 +133,7 @@
 
 .microtabs-link:hover,
 .microtabs-link:focus {
-  color: rgb(var(--links-h));
+  color: rgb(var(--links-hover));
 }
 
 .microtabs-link--active {
@@ -152,54 +141,77 @@
 }
 
 /*
+ * Icones
+ *
+ */
+
+.icn {
+  content: "icn";
+  display: inline-block;
+  text-align: center;
+}
+
+.icn--info:after {
+  content: "i";
+}
+
+.icn--warn:after {
+  content: "!";
+}
+
+/*
  * Messages
  *
  */
 
-.micromsg {}
-.micromsg--warn {
-  --msg: var(--d-c4);
-  --icn: var(--grey-darker)
-}
-
 .micromsg {
-  background-color: rgba(var(--msg), .2);
-  display: flex
+  display: flex;
+  background-color: rgba(var(--msg-bg), .2);
+  margin-bottom: 1rem;
 }
 
 .micromsg-heading {}
 
 .micromsg-title {
   font-weight: bold;
-  color: rgb(var(--msg));
   margin: 0;
-  padding: 0
+  padding: 0;
+  line-height: 1.2;
+  font-size: var(--title-font-size);
+  margin-bottom: .5rem;
+  color: rgb(var(--msg-title));
 }
 
 .micromsg-body {
   padding: 1rem;
 }
 
-.micromsg p {
+.micromsg-body p {
   margin: 0
 }
 
-.micromsg-cartouche {
-  background-color: rgb(var(--msg));
-  color: rgba(var(--icn), .9);
+.micromsg-body p + p {
+  margin-top: .5rem
+}
+
+.micromsg-cartouche { 
   font-weight: bold;
-  font-size: var(--title-font-size) 
+  padding-top: 1rem;
+  color: rgb(var(--msg-cart-color));
+  background-color: rgb(var(--msg-cart-bg));
 }
 
 .micromsg-icn {
-  display: inline-block;
-  padding-top: 1rem;
   padding-left: .5rem;
-  padding-right: .5rem
+  padding-right: .5rem;
+  color: rgb(--var(--msg-cart-color));
+  font-size: 1.5rem;
 }
 
+
+
 /*
- * Synatxe
+ * Syntaxe
  *
  */
 

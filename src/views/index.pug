@@ -13,15 +13,23 @@ html(lang="fr")
                 a.microtabs-link(href='#') Onglet 2
               li.microtabs-item
                 a.microtabs-link(href='#') Onglet 3
-
-          .micromsg.micromsg--warn
+          .micromsg.micromsg--warn(role="alert")
             .micromsg-cartouche
-                .micromsg-icn !
+                .icn.icn--warn.micromsg-icn
             .micromsg-body
               header.micromsg-heading
-                h2.micromsg-title Erreur
+                h2.micromsg-title Achtüng !
               .micromsg-content
-                p Lorem ipusm porro quisquam deserunt nesciunt vitae expedita porro quisquam deserunt nesciunt vitae expedita   
+                p Lorem ipusm porro quisquam deserunt nesciunt vitae expedita porro quisquam deserunt nesciunt vitae expedita
+
+          .micromsg.micromsg--info(role="alert")
+            .micromsg-cartouche
+              .icn.icn--info.micromsg-icn
+            .micromsg-body
+              header.micromsg-heading
+                h2.micromsg-title Good boy je teste un titre plus long pour voir ce que ça donne sur plusieurs lignes
+              .micromsg-content
+                p Lorem ipusm porro quisquam deserunt nesciunt vitae expedita porro quisquam deserunt nesciunt vitae expedita
           |     Lorem 
           i ipsum  
           b
@@ -53,6 +61,23 @@ html(lang="fr")
                 a.microtabs-link(href='#') Onglet 2
               li.microtabs-item
                 a.microtabs-link(href='#') Onglet 3
+          .micromsg.micromsg--warn(role="alert")
+            .micromsg-cartouche
+                .icn.icn--warn.micromsg-icn
+            .micromsg-body
+              header.micromsg-heading
+                h2.micromsg-title Erreur
+              .micromsg-content
+                p Lorem ipusm porro quisquam deserunt nesciunt vitae expedita porro quisquam deserunt nesciunt vitae expedita
+          .micromsg.micromsg--info(role="alert")
+            .micromsg-cartouche
+                .icn.icn--info.micromsg-icn
+            .micromsg-body
+              header.micromsg-heading
+                h2.micromsg-title Well done good sir
+              .micromsg-content
+                p Lorem ipusm porro quisquam deserunt nesciunt vitae expedita porro quisquam deserunt nesciunt vitae expedita
+  
           |     Lorem 
           i ipsum  
           b
