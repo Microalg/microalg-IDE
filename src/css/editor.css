@@ -50,7 +50,7 @@
   --c1:            40,190,70; /* #28BE46 */
   --c2:            220,60,0;  /* #DC3C00 */
   --c3:            0,145,255; /* #0091FF */
-  --c4:            255,100,40; /* #FF8700 */
+  --c4:            255,100,40;/* #FF8700 */
   --links:         var(--c1);
   --links-hover:   var(--text-color);
   --msg-icn-color: var(--grey-lighter);
